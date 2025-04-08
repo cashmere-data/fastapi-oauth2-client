@@ -96,7 +96,7 @@ BASE_URL = "https://f299b727be99.ngrok.app"
 
 ### Step 1: Begin OAuth Flow
 
-Navigate to:
+Open a browser and navigate to:
 
 ```
 http://localhost:3000/login
@@ -110,17 +110,19 @@ Log in (if needed) and authorize the application.
 
 ### Step 3: Callback & Tokens
 
-After authorization, you'll be redirected back to your callback endpoint. The tokens (`access_token`, `refresh_token`, etc.) from Cashmere Publishing will be displayed as a JSON response:
+After authorization, you'll be redirected back to your callback endpoint. The tokens (`access_token`, `refresh_token`, `api_key` etc.) from Cashmere Publishing will be displayed as a JSON response:
 
 ```json
 {
   "access_token": "your-access-token",
+  "api_key": "your-api-key",
   "refresh_token": "your-refresh-token",
   "token_type": "Bearer",
   "expires_in": 3600,
   "scope": "read write"
 }
 ```
+Store the api-key in order to make calls onbehalf of the client to the cashmere publishing api. If it is lost or compromised, you must run through the OAuth2 process again to generate a new API key. The user can revoke the api key at any point by logging into their account on cashmere publishing.
 
 ---
 
